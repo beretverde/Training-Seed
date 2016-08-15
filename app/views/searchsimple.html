@@ -1,1 +1,84 @@
-<p>This is the searchSimple view.</p>
+<div ng-controller="SearchsimpleCtrl">
+
+    <p>Origin: <input type="text" name="origin" ng-model="origin" required /></p>
+    
+    <p>Destination: <input type="text" name="destination" ng-model="destination" required /></p>
+    
+    <p>Begin Date: <input type="text" name="origin" ng-model="beginDate" required /></p>
+    
+    <p>End Date: <input type="text" name="destination" ng-model="endDate" required /></p>
+    
+    <p>PAX Type: <input type="text" name="origin" ng-model="type" required /></p>
+    
+    <p>Discount Code: <input type="text" name="destination" ng-model="discountCode"/></p>
+    
+    <p>Count: <input type="text" name="origin" ng-model="count" required /></p>
+    
+    <p>Promotion Code: <input type="text" name="destination" ng-model="promotionCode" /></p>
+
+    <p>Currency Code: <input type="text" name="destination" ng-model="currencyCode" /></p>
+
+    <p >Loyalty Filter: <input type="text" name="destination" ng-model="loyaltyFilter" /></p>
+    
+    <button ng-click="SendData()">Submit</button>
+    
+    <hr />
+    
+
+    <table class ="table table-striped">
+    <thead>
+    <tr>
+        <th>Carrier</th>
+        <th>Flight Number</th>
+        <th>Depart</th>
+        <th>Arrive</th>
+        <th>Details</th>
+        <th>Travel Time</th>
+        <th>Price</th>
+
+    </tr>
+    </thead>
+
+     <tbody ng-repeat = "trip in PostDataResponse.data.trips">
+
+    <tr ng-repeat="journey in trip.journeysAvailable">
+
+         <td>{{journey.segments[0].identifier.carrierCode}}</td>
+         <td>{{journey.segments[0].identifier.identifier}}</td>
+
+         <td>        
+            {{journey.segments[0].designator.origin}}
+            {{journey.segments[0].designator.departure}}
+         </td>
+
+         <td>
+            {{journey.segments[0].designator.destination}}
+            {{journey.segments[0].designator.arrival}}
+        </td> 
+
+         <td >
+        <span ng-repeat="fare in journey.fares">{{fare.YFARE.classOfService}}</span>
+
+        <!--     {{fare.class}}
+            {{journey.segments[0].designator.arrival}} -->
+        </td> 
+
+    </tr>
+    
+	</tbody>
+
+ </table>
+
+
+ <h4>{{PostDataResponse}}</h4> 
+
+
+
+
+
+
+
+</div>
+
+
+
