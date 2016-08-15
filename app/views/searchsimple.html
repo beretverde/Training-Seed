@@ -24,6 +24,7 @@
     
     <hr />
     
+<h2>{{PostDataResponse.data.trips[0].journeysAvailable[0].fares.YFARE.classOfService}}</h2>
 
     <table class ="table table-striped">
     <thead>
@@ -57,10 +58,8 @@
         </td> 
 
          <td >
-        <span ng-repeat="fare in journey.fares">{{fare.YFARE.classOfService}}</span>
+        <span ng-repeat="fare in journey.fares" style="display:block">fare class {{fare.classOfService}}</span>
 
-        <!--     {{fare.class}}
-            {{journey.segments[0].designator.arrival}} -->
         </td> 
 
     </tr>

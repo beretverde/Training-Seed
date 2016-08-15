@@ -12,8 +12,8 @@ angular.module('trainingSeedApp')
 
   	$scope.origin='slc';
     $scope.destination='den';
-    $scope.beginDate='2016-08-15T03:35:21.258Z';
-    $scope.endDate='2016-08-20T03:35:21.258Z';
+    $scope.beginDate='2016-09-01T03:35:21.258Z';
+    $scope.endDate='2016-09-05T03:35:21.258Z';
     $scope.type='ADT';
     $scope.count=1;
     $scope.currencyCode='USD';
